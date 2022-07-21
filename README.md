@@ -13,6 +13,9 @@ Initially looking to start with Vanilla JS but may move towards a library in fut
 https://github.com/malik-tillman/Fluid-JS
 https://github.com/mharrys/fluids-2d
 
+Cellular Autonomy based water
+
+Nutrients/chemicals can be a value/100 and dissapate to the tiles around it
 
 
 
