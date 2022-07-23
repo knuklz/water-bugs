@@ -22,6 +22,9 @@ windowHeight/grid.height
 */
 
 // functions
+var pxl = function (xCoord,yCoord, pxl) {
+
+}
 
 var waterBlock = function(x,y,c) {
   this.x = x;
@@ -30,17 +33,22 @@ var waterBlock = function(x,y,c) {
   this.size = 10;
   this.draw = function (){
     fill(c);
-   // strokeWeight(1);
-   // stroke(51);
+    strokeWeight(0);
+    noStroke();
+    noSmooth();
     square(this.x, this.y, this.size);
   }
 }
 
 var test;
+var test2;
+test2 = new waterBlock(20,10,"blue");
 test = new waterBlock(10,10,"blue");
 // GameLoop
 function draw() {
   background(220); // Draw the Grey Background
   
   test.draw();
+  test2.draw();
 }
+
