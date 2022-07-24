@@ -1,8 +1,11 @@
+var gWidth = 600;
+var gHeight = 450;
+
 
 // Variables
 var grid = {
-  height: 20,
-  width: 30,
+  height: gHeight,
+  width: gWidth,
   contents:[]
 }
 var water = [];
@@ -18,6 +21,12 @@ windowHeight/grid.height
 ^ Grid height
 
 
+// Setup Grid
+
+// Loop through Rows
+
+// Loop Through Columns
+
 
 */
 
@@ -26,7 +35,7 @@ var drop = function (xCoord,yCoord, pxlColour) {
   this.colour = pxlColour;
   this.x = xCoord;
   this.y = yCoord;
-  this.size = 5;
+  this.size = 1;
   this.update = function() {
     this.y = this.y + 1;
   }
@@ -39,14 +48,16 @@ var drop = function (xCoord,yCoord, pxlColour) {
 }
 
 function addDrop(){
-  water.push(new drop(mouseX,mouseY,'blue'));
+  var newDrop;
+  newDrop = new drop(mouseX,mouseY,'blue');
+  water.push(newDrop);
 }
 
 
 // GameLoop
 function draw() {
   background(220); // Draw the Grey Background
-  while(mouseIsPressed){
+  if(mouseIsPressed){
     addDrop();
   }
   water.forEach((item) => {
