@@ -5,7 +5,7 @@ var grid = {
   width: 30,
   contents:[]
 }
-
+var water = [];
 // Setup
 function setup() {
   //createCanvas(windowWidth, windowHeight);
@@ -22,33 +22,38 @@ windowHeight/grid.height
 */
 
 // functions
-var pxl = function (xCoord,yCoord, pxl) {
-
-}
-
-var waterBlock = function(x,y,c) {
-  this.x = x;
-  this.y = y;
-  this.c = c;
-  this.size = 10;
-  this.draw = function (){
-    fill(c);
-    strokeWeight(0);
-    noStroke();
-    noSmooth();
-    square(this.x, this.y, this.size);
+var drop = function (xCoord,yCoord, pxlColour) {
+  this.colour = pxlColour;
+  this.x = xCoord;
+  this.y = yCoord;
+  this.size = 5;
+  this.update = function() {
+    this.y = this.y + 1;
   }
+  this.draw = function() {
+    noStroke();
+    fill(this.colour);
+    square(this.x,this.y,this.size);
+  }
+  
 }
 
-var test;
-var test2;
-test2 = new waterBlock(20,10,"blue");
-test = new waterBlock(10,10,"blue");
+function addDrop(){
+  water.push(new drop(mouseX,mouseY,'blue'));
+}
+
+
 // GameLoop
 function draw() {
   background(220); // Draw the Grey Background
-  
-  test.draw();
-  test2.draw();
+  while(mouseIsPressed){
+    addDrop();
+  }
+  water.forEach((item) => {
+    item.update();
+    item.draw();
+  });
+ 
 }
+
 
